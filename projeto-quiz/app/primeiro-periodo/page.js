@@ -1,8 +1,18 @@
+import { Cabecalho } from "@/components/cabecalho";
+
 export default function PrimeiroPeriodo() {
   return (
-    <div className="home-container">
-      <h1>Primeiro Período</h1>
-      <p>teste!</p>
+    <>
+    <Cabecalho />
+    <div className="box-container">
+      <div className="home-container">
+      <div className="period-links">
+
+        <h1>Primeiro Período</h1>
+        <p>teste!</p>
+       </div>
+      </div>
     </div>
+    </>
   );
 }

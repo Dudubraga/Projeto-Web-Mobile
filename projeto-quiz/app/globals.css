@@ -7,11 +7,13 @@
 
 body {
   background-color: #f4f4f4;
-  color: #333;
+}
+
+.box-container{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80vh;
 }
 
 .home-container {
@@ -20,6 +22,7 @@ body {
   border-radius: 8px;
   text-align: center;
   width: 400px;
+  color: rgb(0, 0, 0);
 }
 
 h1 {

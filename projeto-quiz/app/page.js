@@ -1,10 +1,15 @@
 import Link from "next/link";
+import { Cabecalho } from "@/components/cabecalho";
 
 export default function HomePage() {
   return (
+    <>
+    <Cabecalho />
+    <div className="box-container">
     <div className="home-container">
       <h1>Quiz</h1>
       <p>Escolha seu periodo:</p>
+      
       <div className="period-links">
         {/* Links para cada período */}
         <Link href="/primeiro-periodo">Primeiro Período</Link>
@@ -14,5 +19,7 @@ export default function HomePage() {
         <Link href="/quinto-periodo">Quinto Período</Link>
       </div>
     </div>
+    </div>
+    </>
   );
 }

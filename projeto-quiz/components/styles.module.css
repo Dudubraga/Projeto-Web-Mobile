@@ -1,0 +1,29 @@
+
+.nav{
+    background-color: #0070f3;
+    padding: 2em;
+    font-weight: bolder;
+    font-style: italic;
+    border-style: solid;
+    
+}
+
+.nav li{
+    list-style: none;
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.nav ul{
+    color: rgb(228, 228, 228);
+    font-weight: bold;
+    font-style: italic;
+    font-size: 30px;
+    display: flex;
+    gap: 2rem;
+    
+}
+
+.nav a{
+    text-decoration: none;
+    color: aliceblue;
+}
