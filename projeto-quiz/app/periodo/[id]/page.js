@@ -12,6 +12,8 @@ export default function PeriodoPage() {
   //cria estado reativo para armazenar perguntas carregadas da API.
   //perguntas é o nome da variável (estado atual) e setPerguntas é a função que atualiza o valor dela
   const [perguntas, setPerguntas] = useState([]);
+  const [indiceAtual, setIndiceAtual] = useState(0); // controla a pergunta atual
+  const [quizFinalizado, setQuizFinalizado] = useState(false);
 
   //passa o id do periodo para a função buscarPerguntasPorPeriodo que recebe inteiro
   let periodoNumero;
@@ -44,6 +46,15 @@ export default function PeriodoPage() {
     }
   }, [periodoNumero]);
 
+  //é usada quando clica no botão "Próxima" até acabar as 5 perguntas
+  const avancarPergunta = () => {
+    if (indiceAtual < perguntas.length - 1) {
+      setIndiceAtual(indiceAtual + 1);
+    } else {
+      setQuizFinalizado(true);
+    }
+  };
+
   return (
     <>
       <Cabecalho />
@@ -51,30 +62,26 @@ export default function PeriodoPage() {
         <div className="quiz-content">
           <h1>Quiz do {id.replace("-", " ")}</h1>
 
-          {perguntas.length > 0 ? ( //verifica se o as perguntas foram carregadas
-            <div className="perguntas-lista">
-              {perguntas.map(
-                (
-                  p,
-                  index //percorre as perguntas e renderiza cada uma
-                ) => (
-                  //cria um card para cada pergunta
-                  <div key={p.id} className="pergunta-card">
-                    <p className="pergunta-texto">
-                      <strong>{index + 1}.</strong> {p.pergunta}
-                    </p>
-                    <div className="alternativas">
-                      <p>A) {p.alternativa_a}</p>
-                      <p>B) {p.alternativa_b}</p>
-                      <p>C) {p.alternativa_c}</p>
-                      <p>D) {p.alternativa_d}</p>
-                    </div>
-                  </div>
-                )
-              )}
+          {quizFinalizado ? (
+            <p>CABOU</p>
+          ) : perguntas.length > 0 ? (
+            <div className="pergunta-card">
+              <p className="pergunta-texto">
+                <strong>{indiceAtual + 1}.</strong>{" "}
+                {perguntas[indiceAtual].pergunta}
+              </p>
+              <div className="alternativas">
+                <p>A) {perguntas[indiceAtual].alternativa_a}</p>
+                <p>B) {perguntas[indiceAtual].alternativa_b}</p>
+                <p>C) {perguntas[indiceAtual].alternativa_c}</p>
+                <p>D) {perguntas[indiceAtual].alternativa_d}</p>
+              </div>
+              <button onClick={avancarPergunta} className="botao-avancar">
+                Próxima
+              </button>
             </div>
           ) : (
-            <p>Carregando perguntas...</p> // aparece enquanto as perguntas estão sendo carregadas
+            <p>Carregando perguntas...</p>
           )}
         </div>
       </div>
