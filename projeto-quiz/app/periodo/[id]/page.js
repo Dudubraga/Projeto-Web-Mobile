@@ -14,6 +14,7 @@ export default function PeriodoPage() {
   const [perguntas, setPerguntas] = useState([]);
   const [indiceAtual, setIndiceAtual] = useState(0); // controla a pergunta atual
   const [quizFinalizado, setQuizFinalizado] = useState(false);
+  const [pontuacao, setPontuacao] = useState(0); // armazena a pontuação do usuário
 
   //passa o id do periodo para a função buscarPerguntasPorPeriodo que recebe inteiro
   let periodoNumero;
@@ -46,8 +47,16 @@ export default function PeriodoPage() {
     }
   }, [periodoNumero]);
 
-  //é usada quando clica no botão "Próxima" até acabar as 5 perguntas
-  const avancarPergunta = () => {
+  //é usada quando o usuário clica em uma alternativa
+  const responderPergunta = (alternativaSelecionada) => {
+    const respostaCorreta = perguntas[indiceAtual].resposta_correta;
+
+    //compara a alternativa clicada com a correta, se acertar, soma 1 na pontuação
+    if (alternativaSelecionada === respostaCorreta) {
+      setPontuacao((prevPontuacao) => prevPontuacao + 1); //jeito de atualizar o estado com react
+    }
+
+    //se ainda não for a última pergunta vai seguir, senão acaba o quiz
     if (indiceAtual < perguntas.length - 1) {
       setIndiceAtual(indiceAtual + 1);
     } else {
@@ -63,7 +72,12 @@ export default function PeriodoPage() {
           <h1>Quiz do {id.replace("-", " ")}</h1>
 
           {quizFinalizado ? (
-            <p>CABOU</p>
+            <div>
+              <p>VAPO!!!!!!a pontuação foi:</p>
+              <h2>
+                {pontuacao} / {perguntas.length}
+              </h2>
+            </div>
           ) : perguntas.length > 0 ? (
             <div className="pergunta-card">
               <p className="pergunta-texto">
@@ -71,14 +85,19 @@ export default function PeriodoPage() {
                 {perguntas[indiceAtual].pergunta}
               </p>
               <div className="alternativas">
-                <p>A) {perguntas[indiceAtual].alternativa_a}</p>
-                <p>B) {perguntas[indiceAtual].alternativa_b}</p>
-                <p>C) {perguntas[indiceAtual].alternativa_c}</p>
-                <p>D) {perguntas[indiceAtual].alternativa_d}</p>
+                <button onClick={() => responderPergunta("A")}>
+                  A) {perguntas[indiceAtual].alternativa_a}
+                </button>
+                <button onClick={() => responderPergunta("B")}>
+                  B) {perguntas[indiceAtual].alternativa_b}
+                </button>
+                <button onClick={() => responderPergunta("C")}>
+                  C) {perguntas[indiceAtual].alternativa_c}
+                </button>
+                <button onClick={() => responderPergunta("D")}>
+                  D) {perguntas[indiceAtual].alternativa_d}
+                </button>
               </div>
-              <button onClick={avancarPergunta} className="botao-avancar">
-                Próxima
-              </button>
             </div>
           ) : (
             <p>Carregando perguntas...</p>
