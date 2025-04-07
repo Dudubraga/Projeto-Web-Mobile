@@ -9,7 +9,7 @@ body {
   background-color: #f4f4f4;
 }
 
-.box-container{
+.box-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,3 +54,5 @@ p {
 .period-links a:hover {
   background-color: #005bb5;
 }
+
+/* styles.css ou quiz.css */
