@@ -10,7 +10,7 @@ body {
 }
 
 /* Este centraliza a caixa no centro */
-.box-container {
+.centralize {
   display: flex;
   justify-content: center;
   align-items: center;

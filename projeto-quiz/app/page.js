@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <>
     <Cabecalho />
-    <div className="box-container">
+    <div className="centralize">
     <div className="home-container">
       <h1>Quiz</h1>
       <p>Escolha seu periodo:</p>
