@@ -68,8 +68,7 @@ export default function PeriodoPage() {
     <>
       <Cabecalho />
       <div className="quiz-container">
-        <div className="quiz-content">
-
+        <div>
           {quizFinalizado ? (
             <div>
               <p>VAPO!!!!!!a pontuação foi:</p>
@@ -78,6 +77,7 @@ export default function PeriodoPage() {
               </h2>
             </div>
           ) : perguntas.length > 0 ? (
+            <div className="box-container">
             <div className="contorn">
                 <h1>Quiz do {id.replace("-", " ")}</h1><br/>
               <p>
@@ -98,6 +98,7 @@ export default function PeriodoPage() {
                     D) {perguntas[indiceAtual].alternativa_d}
                   </button>
                 </div>
+            </div>
             </div>
           ) : (
             <p>Carregando perguntas...</p>
