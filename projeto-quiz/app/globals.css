@@ -9,6 +9,7 @@ body {
   background-color: #f4f4f4;
 }
 
+/* Este centraliza a caixa no centro */
 .box-container {
   display: flex;
   justify-content: center;
@@ -16,11 +17,32 @@ body {
   height: 80vh;
 }
 
+/* Faz o contorno da caixa */
 .home-container {
   background: white;
   padding: 20px;
   border-radius: 8px;
+  text-align: center; /*Centraliza as palavras dentro dos botoes*/
+  width: 400px;
+  color: rgb(0, 0, 0);
+}
+
+.contorn{
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
   text-align: center;
+  width: 440px;
+  border-style:groove;
+}
+
+.perguntas{
+  padding:22px;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   width: 400px;
   color: rgb(0, 0, 0);
 }
@@ -29,6 +51,17 @@ h1 {
   color: #0070f3;
   font-size: 24px;
   margin-bottom: 10px;
+}
+
+.quiz-button{
+  border-radius: 8px;
+  background-color: #0070f3;
+  font-size: 16px;
+  color:whitesmoke;
+  text-align: left;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px;
+  cursor:pointer;
 }
 
 p {

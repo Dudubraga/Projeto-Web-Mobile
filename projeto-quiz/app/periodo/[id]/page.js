@@ -69,7 +69,6 @@ export default function PeriodoPage() {
       <Cabecalho />
       <div className="quiz-container">
         <div className="quiz-content">
-          <h1>Quiz do {id.replace("-", " ")}</h1>
 
           {quizFinalizado ? (
             <div>
@@ -79,25 +78,26 @@ export default function PeriodoPage() {
               </h2>
             </div>
           ) : perguntas.length > 0 ? (
-            <div className="pergunta-card">
-              <p className="pergunta-texto">
+            <div className="contorn">
+                <h1>Quiz do {id.replace("-", " ")}</h1><br/>
+              <p>
                 <strong>{indiceAtual + 1}.</strong>{" "}
                 {perguntas[indiceAtual].pergunta}
               </p>
-              <div className="alternativas">
-                <button onClick={() => responderPergunta("A")}>
-                  A) {perguntas[indiceAtual].alternativa_a}
-                </button>
-                <button onClick={() => responderPergunta("B")}>
-                  B) {perguntas[indiceAtual].alternativa_b}
-                </button>
-                <button onClick={() => responderPergunta("C")}>
-                  C) {perguntas[indiceAtual].alternativa_c}
-                </button>
-                <button onClick={() => responderPergunta("D")}>
-                  D) {perguntas[indiceAtual].alternativa_d}
-                </button>
-              </div>
+                <div className="perguntas">
+                  <button className="quiz-button" onClick={() => responderPergunta("A")}>
+                    A) {perguntas[indiceAtual].alternativa_a}
+                  </button>
+                  <button className="quiz-button" onClick={() => responderPergunta("B")}>
+                    B) {perguntas[indiceAtual].alternativa_b}
+                  </button>
+                  <button className="quiz-button" onClick={() => responderPergunta("C")}>
+                    C) {perguntas[indiceAtual].alternativa_c}
+                  </button>
+                  <button className="quiz-button" onClick={() => responderPergunta("D")}>
+                    D) {perguntas[indiceAtual].alternativa_d}
+                  </button>
+                </div>
             </div>
           ) : (
             <p>Carregando perguntas...</p>
