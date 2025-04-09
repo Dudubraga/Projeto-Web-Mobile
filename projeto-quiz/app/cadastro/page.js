@@ -6,22 +6,26 @@ import { useRouter } from "next/navigation";
 import { Cabecalho } from "@/components/cabecalho";
 
 export default function CadastroPage() {
+  //controlar os inputs
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
 
+  //funçao que vai ser executada clicar pra enviar o formulario de cadastro
+  //o e é o formulário
   const handleCadastro = async (e) => {
-    e.preventDefault();
+    //o async é pra esperar a resposta do Parse
+    e.preventDefault(); //pra não recarregar a página
 
     const user = new Parse.User();
     user.set("username", username);
     user.set("email", email);
     user.set("password", password);
-
+    //cria usuario e define os campos obrigatorios
     try {
-      await user.signUp();
-      alert("Usuário cadastrado com sucesso!");
+      await user.signUp(); //tenta cadastrar o usuario no bdd do parse
+      alert("Usuário cadastrado"); //janela pra avisar
       router.push("/login");
     } catch (error) {
       alert("Erro ao cadastrar: " + error.message);
@@ -36,6 +40,7 @@ export default function CadastroPage() {
         <div className="home-container">
           <h1>Cadastro</h1>
           <form className="form-container" onSubmit={handleCadastro}>
+            {/*onSubmit que chama handleCadastro*/}
             <input
               type="text"
               placeholder="Nome de usuário"
@@ -49,7 +54,7 @@ export default function CadastroPage() {
               placeholder="Email"
               name="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)} /*atualuzar o estado*/
               required
             />
             <input

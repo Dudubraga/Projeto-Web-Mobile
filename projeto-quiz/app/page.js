@@ -8,18 +8,6 @@ export default function HomePage() {
       <Cabecalho />
       <div className="box-container">
         <div className="home-container">
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              marginBottom: "20px",
-            }}
-          >
-            <Link href="/login">
-              <button className="btn-login">Login</button>
-            </Link>
-          </div>
-
           <h1>Quiz</h1>
           <p>Escolha seu periodo:</p>
           <div className="period-links">
