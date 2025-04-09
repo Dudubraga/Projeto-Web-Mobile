@@ -70,14 +70,18 @@ export default function PeriodoPage() {
       <div className="quiz-container">
         <div>
           {quizFinalizado ? (
-            <div className="centralize">
-            <div className="contorn">
-              <p>Essa é a sua pontuação final:</p>
-              <h2>
-                {pontuacao} / {perguntas.length}
-              </h2>
+            <>
+            <div className="resultado-background">
+              <div className="centralize">
+                <div className="contorn">
+                  <p>Essa é a sua pontuação final:</p>
+                  <h2>
+                    {pontuacao} / {perguntas.length}
+                  </h2>
+                </div>
+              </div>
             </div>
-            </div>
+          </>
           ) : perguntas.length > 0 ? (
             <div className="centralize">
             <div className="contorn">

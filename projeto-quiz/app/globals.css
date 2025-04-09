@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #f4f4f4;
+  background-color: #ffffff;
 }
 
 /* Este centraliza a caixa no centro */
@@ -19,12 +19,25 @@ body {
 
 /* Faz o contorno da caixa */
 .home-container {
-  background: white;
+  background: rgb(237, 237, 237);
   padding: 20px;
   border-radius: 8px;
   text-align: center; /*Centraliza as palavras dentro dos botoes*/
   width: 400px;
   color: rgb(0, 0, 0);
+}
+
+.resultado-background {
+  background-image: url('/confetti.gif');
+  /* caminho do seu gif */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .contorn{
