@@ -46,9 +46,9 @@ export default function LoginPage() {
     <>
       <Cabecalho />
       <div className="centralize">
-        <div className="box-login">
+        <div className="box-login-cadastro">
           <h1>Login</h1>
-          <form className="login" onSubmit={handleLogin}>
+          <form className="login-cadastro" onSubmit={handleLogin}>
             <input
               type="text"
               placeholder="Digite seu username"
