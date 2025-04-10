@@ -7,6 +7,8 @@ import { Cabecalho } from "@/components/cabecalho";
 
 export default function UsuarioPage() {
   const [user, setUser] = useState(null);
+  const [novaSenha, setNovaSenha] = useState("");
+  const [mensagem, setMensagem] = useState("");
   const router = useRouter();
 
   useEffect(() => {
@@ -19,6 +21,21 @@ export default function UsuarioPage() {
       router.push("/login");
     }
   }, []);
+
+  const handleAlterarSenha = async (e) => {
+    e.preventDefault();
+    setMensagem("");
+
+    const user = Parse.User.current();
+    try {
+      user.setPassword(novaSenha);
+      await user.save();
+      setMensagem("Senha alterada com sucesso!");
+    } catch (err) {
+      console.error("Erro ao alterar senha:", err.message || err);
+      setMensagem("Erro ao alterar senha. Tente novamente.");
+    }
+  };
 
   return (
     <>
@@ -45,6 +62,17 @@ export default function UsuarioPage() {
           ) : (
             <p>carregando...</p>
           )}
+          <form onSubmit={handleAlterarSenha}>
+            <input
+              type="password"
+              placeholder="Digite a nova senha"
+              value={novaSenha}
+              onChange={(e) => setNovaSenha(e.target.value)}
+              required
+            />
+            <button type="submit">Alterar Senha</button>
+          </form>
+          {mensagem && <p>{mensagem}</p>}
         </div>
       </div>
     </>
