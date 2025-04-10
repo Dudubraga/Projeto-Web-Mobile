@@ -5,30 +5,39 @@ import Parse from "@/lib/parseConfig";
 import { useRouter } from "next/navigation";
 import { Cabecalho } from "@/components/cabecalho";
 import Link from "next/link";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState("");
-  //guarda valores digitados no campo e mensagem de erro pra exibir
+  const [captchaToken, setCaptchaToken] = useState(""); // Armazena o token do CAPTCHA
   const router = useRouter();
+
+  const handleCaptchaChange = (token) => {
+    setCaptchaToken(token); // Atualiza o token do CAPTCHA
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setErro("");
 
+    if (!captchaToken) {
+      setErro("Por favor, complete o CAPTCHA.");
+      return;
+    }
+
     try {
       const user = await Parse.User.logIn(username, senha);
-      //chama a função de login do Parse pra tentar autenticar o usuario com nome e senha
       if (user) {
         router.push("/");
       }
     } catch (err) {
       console.error("Erro no login:", err.message || err);
       if (err.code === 101) {
-        setErro("Usuário ou senha errados."); //101 é padrao por credencial errada
+        setErro("Usuário ou senha errados.");
       } else {
-        setErro("erro generico. Tente novamente."); //erro genérico
+        setErro("Erro genérico. Tente novamente.");
       }
     }
   };
@@ -56,9 +65,11 @@ export default function LoginPage() {
               onChange={(e) => setSenha(e.target.value)}
               required
             />
-            <button type="submit">
-              Entrar
-            </button>
+            <ReCAPTCHA
+              sitekey="6LekxxErAAAAAL4tXh019HXctcKVt9Hd0LxQxlc4" // Chave de site fornecida
+              onChange={handleCaptchaChange}
+            />
+            <button type="submit">Entrar</button>
           </form>
 
           {erro && <p style={{ color: "red", marginTop: "10px" }}>{erro}</p>}
@@ -67,8 +78,6 @@ export default function LoginPage() {
             <span>Ainda não tem uma conta?</span>
             <Link href="/cadastro">Cadastrar</Link>
           </div>
-
-
         </div>
       </div>
     </>
