@@ -24,6 +24,7 @@ export default function CadastroPage() {
     user.set("password", password);
     //cria usuario e define os campos obrigatorios
     try {
+      await user.signUp();
       alert("Usuário cadastrado"); //janela pra avisar
       router.push("/login");
     } catch (error) {
