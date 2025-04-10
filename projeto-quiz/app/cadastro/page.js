@@ -35,7 +35,7 @@ export default function CadastroPage() {
   return (
     <>
       <Cabecalho />
-      <div className="box-container">
+      <div className="centralize">
         <div className="home-container">
           <h1>Cadastro</h1>
           <form className="form-container" onSubmit={handleCadastro}>
