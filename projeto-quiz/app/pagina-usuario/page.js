@@ -34,6 +34,13 @@ export default function UsuarioPage() {
               <p>
                 <strong>email:</strong> {user.get("email")}
               </p>
+              <p>
+                <strong>questões acertadas:</strong> {user.get("pontuacao")}
+              </p>
+              <p>
+                <strong>questões respondidas:</strong>{" "}
+                {user.get("questoesRespondidas")}
+              </p>
             </div>
           ) : (
             <p>carregando...</p>
