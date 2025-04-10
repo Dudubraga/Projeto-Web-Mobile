@@ -3,8 +3,7 @@ import { useParams } from "next/navigation";
 import { Cabecalho } from "@/components/cabecalho";
 import { useEffect, useState } from "react";
 import { buscarPerguntasPorPeriodo } from "@/lib/parsePerguntas";
-//useState: cria uma variável reativa que atualiza a interface quando muda o valor
-//useEffect: deixa buscar as perguntas no bando de dados depois que o componente renderiza
+import Parse from "@/lib/parseConfig";
 
 export default function PeriodoPage() {
   const { id } = useParams();
@@ -15,6 +14,7 @@ export default function PeriodoPage() {
   const [indiceAtual, setIndiceAtual] = useState(0); // controla a pergunta atual
   const [quizFinalizado, setQuizFinalizado] = useState(false);
   const [pontuacao, setPontuacao] = useState(0); // armazena a pontuação do usuário
+  const [pontuacaoTotal, setPontuacaoTotal] = useState(null); // armazena a pontuação acumulada do usuário
 
   //passa o id do periodo para a função buscarPerguntasPorPeriodo que recebe inteiro
   let periodoNumero;
@@ -48,19 +48,36 @@ export default function PeriodoPage() {
   }, [periodoNumero]);
 
   //é usada quando o usuário clica em uma alternativa
-  const responderPergunta = (alternativaSelecionada) => {
+  const responderPergunta = async (alternativaSelecionada) => {
     const respostaCorreta = perguntas[indiceAtual].resposta_correta;
 
-    //compara a alternativa clicada com a correta, se acertar, soma 1 na pontuação
     if (alternativaSelecionada === respostaCorreta) {
-      setPontuacao((prevPontuacao) => prevPontuacao + 1); //jeito de atualizar o estado com react
+      setPontuacao((prevPontuacao) => prevPontuacao + 1);
     }
 
-    //se ainda não for a última pergunta vai seguir, senão acaba o quiz
     if (indiceAtual < perguntas.length - 1) {
       setIndiceAtual(indiceAtual + 1);
     } else {
       setQuizFinalizado(true);
+
+      const usuario = Parse.User.current();
+      if (usuario) {
+        const pontuacaoAtual = usuario.get("pontuacao") || 0;
+        const questoesRespondidasAtual =
+          usuario.get("questoesRespondidas") || 0;
+
+        const acertouUltima = alternativaSelecionada === respostaCorreta;
+        const totalAcertosQuiz = pontuacao + (acertouUltima ? 1 : 0);
+        const novaPontuacao = pontuacaoAtual + totalAcertosQuiz;
+        const novasQuestoesRespondidas =
+          questoesRespondidasAtual + perguntas.length;
+
+        usuario.set("pontuacao", novaPontuacao);
+        usuario.set("questoesRespondidas", novasQuestoesRespondidas);
+        await usuario.save();
+
+        setPontuacaoTotal(novaPontuacao);
+      }
     }
   };
 
@@ -75,9 +92,12 @@ export default function PeriodoPage() {
               <div className="centralize">
                 <div className="contorn">
                   <p>Essa é a sua pontuação final:</p>
-                  <h2>
-                    {pontuacao} / {perguntas.length}
-                  </h2>
+              <h2>
+                {pontuacao} / {perguntas.length}
+              </h2>
+              {pontuacaoTotal !== null && (
+                <p>PONTUACAO ATUAL DO USUARIO: {pontuacaoTotal}</p>
+              )}
                 </div>
               </div>
             </div>
