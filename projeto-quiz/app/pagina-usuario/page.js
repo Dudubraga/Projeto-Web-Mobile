@@ -25,12 +25,11 @@ export default function UsuarioPage() {
   const handleAlterarSenha = async (e) => {
     e.preventDefault();
     setMensagem("");
-
     const user = Parse.User.current();
     try {
       user.setPassword(novaSenha);
       await user.save();
-      setMensagem("Senha alterada com sucesso!");
+      setMensagem("senha alterada com sucesso!");
     } catch (err) {
       console.error("Erro ao alterar senha:", err.message || err);
       setMensagem("Erro ao alterar senha. Tente novamente.");
