@@ -88,46 +88,58 @@ export default function PeriodoPage() {
         <div>
           {quizFinalizado ? (
             <>
-            <div className="resultado-background">
-              <div className="centralize">
-                <div className="contorn">
-                  <p>Essa é a sua pontuação final:</p>
-              <h2>
-                {pontuacao} / {perguntas.length}
-              </h2>
-              {pontuacaoTotal !== null && (
-                <p>PONTUACAO ATUAL DO USUARIO: {pontuacaoTotal}</p>
-              )}
+              <div className="resultado-background">
+                <div className="centralize">
+                  <div className="contorn">
+                    <p>SUA PONTUAÇÃO NO QUIZ FOI:</p>
+                    <h2>
+                      {pontuacao} / {perguntas.length}
+                    </h2>
+                    {pontuacaoTotal !== null && (
+                      <p>SUA PONTUACAO TOTAL: {pontuacaoTotal}</p>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          </>
+            </>
           ) : perguntas.length > 0 ? (
             <div className="centralize">
-            <div className="contorn">
-                <h1>Quiz do {id.replace("-", " ")}</h1><br/>
-              <p>
-                <strong>{indiceAtual + 1}.</strong>{" "}
-                {perguntas[indiceAtual].pergunta}
-              </p>
+              <div className="contorn">
+                <h1>Quiz do {id.replace("-", " ")}</h1>
+                <br />
+                <p>
+                  <strong>{indiceAtual + 1}.</strong>{" "}
+                  {perguntas[indiceAtual].pergunta}
+                </p>
                 <div className="perguntas">
-                  <button className="quiz-button" onClick={() => responderPergunta("A")}>
+                  <button
+                    className="quiz-button"
+                    onClick={() => responderPergunta("A")}
+                  >
                     A) {perguntas[indiceAtual].alternativa_a}
                   </button>
-                  <button className="quiz-button" onClick={() => responderPergunta("B")}>
+                  <button
+                    className="quiz-button"
+                    onClick={() => responderPergunta("B")}
+                  >
                     B) {perguntas[indiceAtual].alternativa_b}
                   </button>
-                  <button className="quiz-button" onClick={() => responderPergunta("C")}>
+                  <button
+                    className="quiz-button"
+                    onClick={() => responderPergunta("C")}
+                  >
                     C) {perguntas[indiceAtual].alternativa_c}
                   </button>
-                  <button className="quiz-button" onClick={() => responderPergunta("D")}>
+                  <button
+                    className="quiz-button"
+                    onClick={() => responderPergunta("D")}
+                  >
                     D) {perguntas[indiceAtual].alternativa_d}
                   </button>
                 </div>
-            </div>
+              </div>
             </div>
           ) : (
-            
             <p className="centralize">Carregando perguntas...</p>
           )}
         </div>

@@ -26,7 +26,7 @@ export default function CadastroPage() {
     try {
       await user.signUp();
       alert("Usuário cadastrado"); //janela pra avisar
-      router.push("/login");
+      router.push("/");
     } catch (error) {
       alert("Erro ao cadastrar: " + error.message);
       console.error("Erro:", error);
