@@ -36,10 +36,10 @@ export default function LoginPage() {
   return (
     <>
       <Cabecalho />
-      <div className="box-container">
-        <div className="home-container">
+      <div className="centralize">
+        <div className="box-login">
           <h1>Login</h1>
-          <form onSubmit={handleLogin}>
+          <form className="login" onSubmit={handleLogin}>
             <input
               type="text"
               placeholder="Digite seu username"
@@ -56,19 +56,19 @@ export default function LoginPage() {
               onChange={(e) => setSenha(e.target.value)}
               required
             />
-            <button type="submit" className="btn-login">
+            <button type="submit">
               Entrar
             </button>
           </form>
 
           {erro && <p style={{ color: "red", marginTop: "10px" }}>{erro}</p>}
 
-          <p style={{ marginTop: "20px" }}>
-            Ainda não tem uma conta?{" "}
-            <Link href="/cadastro">
-              <button className="btn-login">Cadastrar</button>
-            </Link>
-          </p>
+          <div className="login-cadastrar">
+            <span>Ainda não tem uma conta?</span>
+            <Link href="/cadastro">Cadastrar</Link>
+          </div>
+
+
         </div>
       </div>
     </>
