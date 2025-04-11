@@ -24,7 +24,8 @@ Acesse a versão publicada do quiz através deste [link](https://projeto-web-mob
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Frontend**: React, Next.js, CSS
+- **Frontend**: React, Next.js
 - **Backend**: [Back4App](https://www.back4app.com/?utm_source=google-ads&utm_medium=display&utm_campaign=performancemax-remarketing&gad_source=1&gclid=Cj0KCQjw2N2_BhCAARIsAK4pEkU2Vxv26lE6yhwNg0KeSYXs3qXev9k9iKioPy6sH7UakXny_kUlV3oaAhXIEALw_wcB)
+- **Estilização**: CSS
 - **API Externa**: [Google ReCAPTCHA](https://cloud.google.com/security/products/recaptcha?hl=pt-BR)
 
