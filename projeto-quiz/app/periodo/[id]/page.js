@@ -84,30 +84,31 @@ export default function PeriodoPage() {
   return (
     <>
       <Cabecalho />
-      <div className="quiz-container">
+      <div className="">
         <div>
           {quizFinalizado ? (
             <>
               <div className="resultado-background">
                 <div className="centralize">
-                  <div className="contorn">
-                    <p>Sua pontuação nesse quiz foi:</p>
+                  <div className="result-container">
+                    <h1>Sua pontuação nesse quiz foi:</h1>
                     <h2>
                       {pontuacao} / {perguntas.length}
                     </h2>
                     {pontuacaoTotal !== null && (
-                      <p>Pontuação total: {pontuacaoTotal}</p>
+                      <p>Pontuação Total: {pontuacaoTotal}</p>
                     )}
+                    <a href="/"> <button>Reiniciar</button> </a>
                   </div>
                 </div>
               </div>
             </>
           ) : perguntas.length > 0 ? (
             <div className="centralize">
-              <div className="contorn">
+              <div className="quiz-container">
                 <h1>Quiz do {id.replace("-", " ")}</h1>
                 <br />
-                <p>
+                <p className="pergunta-texto">
                   <strong>{indiceAtual + 1}.</strong>{" "}
                   {perguntas[indiceAtual].pergunta}
                 </p>

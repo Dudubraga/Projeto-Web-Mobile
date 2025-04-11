@@ -39,7 +39,7 @@ export default function UsuarioPage() {
   return (
     <>
       <Cabecalho />
-      <div class="centralize-box">
+      <div className="centralize-box">
         <div className="box-container">
           <h1>Informações do Usuário</h1>
           {user ? (

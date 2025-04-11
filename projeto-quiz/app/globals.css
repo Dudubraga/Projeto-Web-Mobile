@@ -7,14 +7,12 @@
 body {
   background-color: #ffffff;
 }
-
 .centralize {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 80vh;
 }
-
 .home-container {
   background: rgb(237, 237, 237);
   padding: 20px;
@@ -93,7 +91,7 @@ body {
   color: black;
 }
 .contorn{
-  background-color: white;
+  background-color: rgb(237, 237, 237);
   padding: 20px;
   border-radius: 8px;
   text-align: center;
@@ -112,8 +110,27 @@ body {
 }
 h1 {
   color: #207dc1;
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: 28px;
+  margin: 20px 0px;
+}
+.quiz-container {
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 8px;
+  border-style:groove;
+  width: 500px;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.quiz-container .pergunta-texto {
+  font-size: 18px;
+  margin: 10px 30px;
+  text-align: center;
 }
 .quiz-button{
   border-radius: 8px;
@@ -121,11 +138,45 @@ h1 {
   font-size: 16px;
   color:whitesmoke;
   text-align: left;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 10px;
   cursor:pointer;
 }
 .quiz-button:hover{
+  transform: translateY(-2px);
+}
+.result-container {
+  background-color: rgb(237, 237, 237);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 500px;
+  border-style:groove;
+}
+.result-container h1 {
+  color: #207dc1;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+.result-container p {
+  font-size: 18px;
+  margin-top: 20px;
+}
+.result-container button {
+  text-decoration: none;
+  background-color: #207dc1;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.result-container button:hover {
   transform: translateY(-2px);
 }
 p {
@@ -158,13 +209,11 @@ p {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .period-links button:hover {
-  background-color: #207dc1;
   transform: translateY(-2px);
 }
 .period-links a:hover {
   background-color: #207dc1;
 }
-
 .centralize-box {
   position: absolute;
   top: 50%;
@@ -174,29 +223,24 @@ p {
   flex-direction: column;
   align-items: center;
 }
-
 .box-container {
   background: rgb(237, 237, 237);
   padding: 30px;
   border-radius: 8px;
-  /* text-align: center; */
   width: 500px;
   color: rgb(0, 0, 0);
   border-style: groove;
 }
-
 .box-container h1 {
   color: #207dc1;
   font-size: 24px;
   margin-bottom: 20px;
   text-align: center;
 }
-
 .box-container p {
   font-size: 16px;
   margin-bottom: 20px;
 }
-
 .box-container input {
   width: 300px;
   padding: 10px;
@@ -207,12 +251,10 @@ p {
   outline: none;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
-
 .box-container input:focus {
   border-color: #207dc1;
   box-shadow: 0 0 6px rgba(0, 112, 243, 0.5);
 }
-
 .box-container button {
   text-decoration: none;
   background-color: #207dc1;
@@ -225,9 +267,7 @@ p {
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-left: 10px;
-  
 }
-
 .box-container button {
   background-color: #207dc1;
   transform: translateY(-2px);
