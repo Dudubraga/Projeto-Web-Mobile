@@ -39,22 +39,22 @@ export default function UsuarioPage() {
   return (
     <>
       <Cabecalho />
-      <div className="box-container">
-        <div className="home-container">
+      <div class="centralize-box">
+        <div className="box-container">
           <h1>Informações do Usuário</h1>
           {user ? (
             <div>
               <p>
-                <strong>nome de usuário:</strong> {user.get("username")}
+                <strong>Nome de Usuário:</strong> {user.get("username")}
               </p>
               <p>
-                <strong>email:</strong> {user.get("email")}
+                <strong>E-mail:</strong> {user.get("email")}
               </p>
               <p>
-                <strong>questões acertadas:</strong> {user.get("pontuacao")}
+                <strong>Questões acertadas:</strong> {user.get("pontuacao")}
               </p>
               <p>
-                <strong>questões respondidas:</strong>{" "}
+                <strong>Questões respondidas:</strong>{" "}
                 {user.get("questoesRespondidas")}
               </p>
             </div>

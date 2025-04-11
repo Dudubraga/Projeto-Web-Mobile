@@ -7,12 +7,14 @@
 body {
   background-color: #ffffff;
 }
+
 .centralize {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 80vh;
 }
+
 .home-container {
   background: rgb(237, 237, 237);
   padding: 20px;
@@ -20,9 +22,9 @@ body {
   text-align: center;
   width: 400px;
   color: rgb(0, 0, 0);
-    border-style: groove;
+  border-style: groove;
 }
-.resultado-background {
+/* .resultado-background {
   background-image: url('/confetti.gif');
   background-size: cover;
   background-position: center;
@@ -32,7 +34,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 .box-login-cadastro{
   background: rgb(237, 237, 237);
   padding: 20px;
@@ -60,12 +62,12 @@ body {
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 .login-cadastro input:focus {
-  border-color: #073a62;
+  border-color: #207dc1;
   box-shadow: 0 0 6px rgba(0, 112, 243, 0.5);
 }
 .login-cadastro button {
   text-decoration: none;
-  background-color: #073a62;
+  background-color: #207dc1;
   color: white;
   padding: 8px 16px;
   border-radius: 8px;
@@ -76,7 +78,7 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .login-cadastro button:hover {
-  background-color: #073a62;
+  background-color: #207dc1;
   transform: translateY(-2px);
 }
 .login-cadastrar {
@@ -109,13 +111,13 @@ body {
   color: rgb(0, 0, 0);
 }
 h1 {
-  color: #073a62;
+  color: #207dc1;
   font-size: 24px;
   margin-bottom: 10px;
 }
 .quiz-button{
   border-radius: 8px;
-  background-color: #073a62;
+  background-color: #207dc1;
   font-size: 16px;
   color:whitesmoke;
   text-align: left;
@@ -137,7 +139,7 @@ p {
 }
 .period-links a {
   text-decoration: none;
-  background-color: #073a62;
+  background-color: #207dc1;
   color: white;
   padding: 10px;
   border-radius: 5px;
@@ -145,7 +147,7 @@ p {
 }
 .period-links button{
   text-decoration: none;
-  background-color: #073a62;
+  background-color: #207dc1;
   color: white;
   padding: 8px 16px;
   border-radius: 8px;
@@ -156,9 +158,77 @@ p {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .period-links button:hover {
-  background-color: #073a62;
+  background-color: #207dc1;
   transform: translateY(-2px);
 }
 .period-links a:hover {
-  background-color: #073a62;
+  background-color: #207dc1;
+}
+
+.centralize-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box-container {
+  background: rgb(237, 237, 237);
+  padding: 30px;
+  border-radius: 8px;
+  /* text-align: center; */
+  width: 500px;
+  color: rgb(0, 0, 0);
+  border-style: groove;
+}
+
+.box-container h1 {
+  color: #207dc1;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.box-container p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.box-container input {
+  width: 300px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: 0.3s ease;
+  outline: none;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.box-container input:focus {
+  border-color: #207dc1;
+  box-shadow: 0 0 6px rgba(0, 112, 243, 0.5);
+}
+
+.box-container button {
+  text-decoration: none;
+  background-color: #207dc1;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+  
+}
+
+.box-container button {
+  background-color: #207dc1;
+  transform: translateY(-2px);
 }

@@ -21,7 +21,7 @@ export default function HomePage() {
     if (usuarioLogado) {
       router.push(`/periodo/${periodo}`);
     } else {
-      setMensagem("loga ai primeiro");
+      setMensagem("Faça login para acessar o quiz.");
       setTimeout(() => {
         router.push("/login");
       }, 2000); // espera 2 segundos pra mandar pro login

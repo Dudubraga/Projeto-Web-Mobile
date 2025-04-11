@@ -91,12 +91,12 @@ export default function PeriodoPage() {
               <div className="resultado-background">
                 <div className="centralize">
                   <div className="contorn">
-                    <p>SUA PONTUAÇÃO NO QUIZ FOI:</p>
+                    <p>Sua pontuação nesse quiz foi:</p>
                     <h2>
                       {pontuacao} / {perguntas.length}
                     </h2>
                     {pontuacaoTotal !== null && (
-                      <p>SUA PONTUACAO TOTAL: {pontuacaoTotal}</p>
+                      <p>Pontuação total: {pontuacaoTotal}</p>
                     )}
                   </div>
                 </div>
