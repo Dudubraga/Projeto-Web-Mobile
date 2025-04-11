@@ -46,9 +46,6 @@ export function Cabecalho() {
           <li className={styles.pointer} onClick={handleHomeClick}>
             <img src="../favicon.ico" alt="Logo do Quiz" className={styles.logo}/>
           </li>
-          <li className={styles.pointer} onClick={handleHomeClick}>
-              Home
-          </li>
           {usuarioLogado ? (
             <>
               <li className={styles.pointer} onClick={handlePerfilClick}>
