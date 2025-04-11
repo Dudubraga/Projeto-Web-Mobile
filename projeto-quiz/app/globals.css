@@ -4,33 +4,26 @@
   box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
-
 body {
   background-color: #ffffff;
 }
-
-/* Este centraliza a caixa no centro */
 .centralize {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 80vh;
 }
-
-/* Faz o contorno da caixa */
 .home-container {
   background: rgb(237, 237, 237);
   padding: 20px;
   border-radius: 8px;
-  text-align: center; /*Centraliza as palavras dentro dos botoes*/
+  text-align: center;
   width: 400px;
   color: rgb(0, 0, 0);
     border-style: groove;
 }
-
 .resultado-background {
   background-image: url('/confetti.gif');
-  /* caminho do seu gif */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -40,18 +33,15 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .box-login-cadastro{
   background: rgb(237, 237, 237);
   padding: 20px;
   border-radius: 8px;
   text-align: center;
-  /*Centraliza as palavras dentro dos botoes*/
   width: 400px;
   color: rgb(0, 0, 0);
   border-style: groove;
 }
-
 .login-cadastro{
   display: flex;
   flex-direction: column;
@@ -69,15 +59,13 @@ body {
   outline: none;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
-
 .login-cadastro input:focus {
-  border-color: #0070f3;
+  border-color: #073a62;
   box-shadow: 0 0 6px rgba(0, 112, 243, 0.5);
 }
-
 .login-cadastro button {
   text-decoration: none;
-  background-color: #0070f3;
+  background-color: #073a62;
   color: white;
   padding: 8px 16px;
   border-radius: 8px;
@@ -87,28 +75,21 @@ body {
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 .login-cadastro button:hover {
-  background-color: #005bb5;
+  background-color: #073a62;
   transform: translateY(-2px);
 }
-
 .login-cadastrar {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* alinha verticalmente */
   gap: 10px;
   margin-top: 10px;
   font-size: 14px;
 }
-
 .login-cadastrar a{
   color: black;
 }
-
-
-
 .contorn{
   background-color: white;
   padding: 20px;
@@ -117,7 +98,6 @@ body {
   width: 440px;
   border-style:groove;
 }
-
 .perguntas{
   padding:22px;
   border-radius: 8px;
@@ -128,16 +108,14 @@ body {
   width: 400px;
   color: rgb(0, 0, 0);
 }
-
 h1 {
-  color: #0070f3;
+  color: #073a62;
   font-size: 24px;
   margin-bottom: 10px;
 }
-
 .quiz-button{
   border-radius: 8px;
-  background-color: #0070f3;
+  background-color: #073a62;
   font-size: 16px;
   color:whitesmoke;
   text-align: left;
@@ -145,31 +123,29 @@ h1 {
   padding: 10px;
   cursor:pointer;
 }
-
+.quiz-button:hover{
+  transform: translateY(-2px);
+}
 p {
   font-size: 18px;
   margin-bottom: 20px;
 }
-
 .period-links {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-
-
 .period-links a {
   text-decoration: none;
-  background-color: #0070f3;
+  background-color: #073a62;
   color: white;
   padding: 10px;
   border-radius: 5px;
   font-size: 16px;
 }
-
 .period-links button{
   text-decoration: none;
-  background-color: #0070f3;
+  background-color: #073a62;
   color: white;
   padding: 8px 16px;
   border-radius: 8px;
@@ -179,14 +155,10 @@ p {
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 .period-links button:hover {
-  background-color: #005bb5;
+  background-color: #073a62;
   transform: translateY(-2px);
 }
-
 .period-links a:hover {
-  background-color: #005bb5;
+  background-color: #073a62;
 }
-
-/* styles.css ou quiz.css */

@@ -16,6 +16,10 @@ export function Cabecalho() {
     setUsuarioLogado(user);
   }, []);
 
+  const handleHomeClick = () => {
+    router.push("/");
+  };
+  
   const handlePerfilClick = () => {
     router.push("/pagina-usuario");
   };
@@ -38,27 +42,24 @@ export function Cabecalho() {
   return (
     <header>
       <nav className={styles.nav}>
-        QUIZ CC
         <ul>
-          <Link href="/">
-            <li>Home</li>
-          </Link>
-          <li>Períodos</li>
-          {/*aqui é a lógica pra o que vai aparecer na tela*/}
+          <li className={styles.pointer} onClick={handleHomeClick}>
+            <img src="../favicon.ico" alt="Logo do Quiz" className={styles.logo}/>
+          </li>
+          <li className={styles.pointer} onClick={handleHomeClick}>
+              Home
+          </li>
           {usuarioLogado ? (
             <>
-              <li style={{ cursor: "pointer" }} onClick={handlePerfilClick}>
+              <li className={styles.pointer} onClick={handlePerfilClick}>
                 Meu Perfil
               </li>
-              <li
-                style={{ cursor: "pointer", color: "red" }}
-                onClick={handleLogout}
-              >
+              <li className={styles.pointer} onClick={handleLogout}>
                 Sair
               </li>
             </>
           ) : (
-            <li style={{ cursor: "pointer" }} onClick={handleLoginClick}>
+            <li className={styles.pointer} onClick={handleLoginClick}>
               Login
             </li>
           )}
