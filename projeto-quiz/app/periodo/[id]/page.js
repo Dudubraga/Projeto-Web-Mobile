@@ -2,6 +2,7 @@
 import { useParams } from "next/navigation";
 import { Cabecalho } from "@/components/cabecalho";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { buscarPerguntasPorPeriodo } from "@/lib/parsePerguntas";
 import Parse from "@/lib/parseConfig";
 
@@ -98,7 +99,9 @@ export default function PeriodoPage() {
                     {pontuacaoTotal !== null && (
                       <p>Pontuação Total: {pontuacaoTotal}</p>
                     )}
-                    <a href="/"> <button>Reiniciar</button> </a>
+                    <Link href="/">
+                      <button>Reiniciar</button>
+                    </Link>
                   </div>
                 </div>
               </div>
